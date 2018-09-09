@@ -37,8 +37,14 @@ struct Line{
     Line(Point _a=Point(),Point _b=Point()):a(_a),b(_b){}
 };
 
+typedef Point Vector;
+
 inline double Dot(Point a,Point b){ //点乘
     return a.x*b.x+a.y*b.y;
+}
+
+inline double Cross(Point a,Point b){ //叉乘
+    return a.x*b.y-a.y*b.x;
 }
 
 inline double Length(Point a){ //线段长度（重载
@@ -57,9 +63,6 @@ inline double Angle(Line a){ //计算角度（重载
     return Angle(a.a,a.b);
 }
 
-inline double Cross(Point a,Point b){ //叉乘
-    return a.x*b.y-a.y*b.x;
-}
 
 inline double Area2(Point a,Point b,Point c){//三角形面积两倍，平行四边形面积
     return Cross(b-a,c-a);
