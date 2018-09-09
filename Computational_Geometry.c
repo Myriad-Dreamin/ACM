@@ -11,6 +11,7 @@ inline int dcmp(double x){
 struct Point{
     double x,y;
     Point(double _x=0,double _y=0):x(_x),y(_y){}
+    Point(const Point& b):x(b.x),y(b.y){}
     Point operator + (Point b){ //对应坐标加
         return Point(x+b.x,y+b.y);
     }
@@ -31,28 +32,38 @@ struct Point{
     }
 };
 
+struct Line{
+    Point a,b;
+    Line(Point _a=Point(),Point _b=Point()):a(_a),b(_b){}
+};
+
 inline double Dot(Point a,Point b){ //点乘
     return a.x*b.x+a.y*b.y;
 }
 
-inline double Length(Point a){ //线段长度
+inline double Length(Point a){ //线段长度（重载
     return Dot(a,a);
 }
 
-inline double Angle(Point a,Point b){ //计算角度
+inline double Length(Line a){ //线段长度（重载
+    return Length(a.a-a.b);
+}
+
+inline double Angle(Point a,Point b){ //计算角度（重载
     return acos(Dot(a,b)/Length(a)/Length(b));
+}
+
+inline double Angle(Line a){ //计算角度（重载
+    return Angle(a.a,a.b);
 }
 
 inline double Cross(Point a,Point b){ //叉乘
     return a.x*b.y-a.y*b.x;
 }
 
-inline double Area2(Point a,Point b,Point c){ //三角形面积两倍，平行四边形面积
+inline double Area2(Point a,Point b,Point c){//三角形面积两倍，平行四边形面积
     return Cross(b-a,c-a);
 }
-
-
-
 
 int main(){
     Point a(1,2),b(3,4),c(5,6);
