@@ -77,7 +77,7 @@ struct Matrix{
         }
     }
 };
-Matrix X[(16<<sizeof(Matrixtype))+1];
+Matrix X[(sizeof(Matrixtype)<<3)+1];
 void premat(Matrixtype n,Matrix &Mat){
     int k=1;X[0].copy(Mat);
     while(n>>k){
