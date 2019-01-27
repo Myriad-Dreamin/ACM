@@ -21,8 +21,9 @@
 //  int b<2*n,matrix &res
 //  同pow
 //)
-typedef int Matrixtype;
-const int Dim=11;
+typedef long long Matrixtype;
+const int Dim=101;
+//const Matrixtype mod=1e9+7;
 struct Matrix{
     Matrixtype a[Dim][Dim];
     inline Matrixtype* const operator[](const int _i){return a[_i];}
@@ -42,7 +43,9 @@ struct Matrix{
     void prt(){
         puts("--------------");
         for(int i=1;i<=a[0][0];i++,puts("")){
-            for(int j=1;j<=a[0][0];j++)printf("%d ",a[i][j]);
+            for(int j=1;j<=a[0][0];j++)
+                //printf("%d ",a[i][j]);
+                printf("%I64d ",a[i][j]);
         }
     }
     Matrix operator*(Matrix &b)const{
@@ -74,16 +77,16 @@ struct Matrix{
         }
     }
 };
-Matrix X[40];
+Matrix X[(16<<sizeof(Matrixtype))+1];
 void premat(Matrixtype n,Matrix &Mat){
     int k=1;X[0].copy(Mat);
-    while((Matrixtype)(1<<k)<=n){
+    while(n>>k){
         X[k]=X[k-1]*X[k-1];k++;
     }
 }
 void prepow(Matrixtype n,Matrix &res){
     res.I(X[0][0][0]);
-    for(int bit=0;(Matrixtype)(1<<bit)<=n;bit++){
+    for(int bit=0;n>>bit;bit++){
         if((n>>bit)&1)res=res*X[bit];
     }
 }
