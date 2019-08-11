@@ -34,7 +34,7 @@ struct Hash {
         *this = s;
     }
 
-    inline long long slice(int l, int r) {
+    inline int slice(int l, int r) {
         static int ret;
         ret = HA[r] - 1ll * HA[l-1] * HB[r-l+1]%mod;
         return ret < 0 ? ret + mod : ret;
