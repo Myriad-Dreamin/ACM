@@ -22,7 +22,7 @@
     + [Min25 Sieve](number-theory/min25-sieve.md)
     + [Number Theory Transform](number-theory/ntt.md)
     
-+ [Number Theory](string/pre.md)
++ [String](string/pre.md)
   
     + [Aho-Corasick Automaton](string/aho-corasick-automaton.md	)
     + [Hash](string/hash.md)
