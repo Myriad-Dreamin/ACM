@@ -21,6 +21,18 @@
     + [Zg Sieve](number-theory/zg-sieve.md)
     + [Min25 Sieve](number-theory/min25-sieve.md)
     + [Number Theory Transform](number-theory/ntt.md)
+    
++ [Number Theory](string/pre.md)
+  
+    + [Aho-Corasick Automaton](string/aho-corasick-automaton.md	)
+    + [Hash](string/hash.md)
+    + [KMP](string/kmp.md)
+    + [Manacher Algorithm](string/manacher.md)
+    + [Suffix Array](string/suffix-array.md)
+    + [Suffix Automaton](string/suffix-automaton.md)
+    + [Suffix Tree](string/suffix-tree.md)
+    + [Trie](string/trie.md)
+    + [Z Algorithm(extKMP)](string/z-algorithm.md)
 
 
 
